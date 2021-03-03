@@ -1,0 +1,95 @@
+*netfind.txt* Plugin for improving |gf| behaviour in some protocols
+
+This plugin uses urllib to join paths.  
+
+======================================================================
+1. Contents					*netfind-contents*
+
+1.  Contents.......................................|netfind-contents|
+2.  Functions......................................|netfind-functions|
+3.  Maps...........................................|netfind-maps|
+4.  Commands.......................................|netfind-commands|
+
+======================================================================
+2. Functions					*netfind-functions*
+
+						*netfind#resolve()*
+netfind#resolve({path})	Returns the joined {path} relative to the
+			current buffer filename.
+
+						*netfind#resolve_at()*
+netfind#resolve_at({base}, {path})
+			Returns the joined {path} relative to {base}.
+
+						*netfind#find()*
+netfind#find({path})	Invokes |:edit| with the resolved {path}.
+
+					*netfind#enabled_matches()*
+netfind#enabled_matches({path})
+			Returns whether netfind is used from the
+			{path}.
+			By default, netfind is used for http(s),
+			gemini, gopher.
+
+					*netfind#enabled_addptn()*
+netfind#enabled_addptn({ptn})
+			Adds an url |pattern| for enabling netfind in
+			the mathching buffers.
+
+					*netfind#enabled_delptn()*
+netfind#enabled_delptn({ptn})
+			Deletes the pattern added earlier.
+
+======================================================================
+3. Maps						*netfind-maps*
+
+						*g:netfind_nomaps*
+			Set this variable to |v:true| to disable
+			automatic standard key override.
+
+						*<Plug>(netfind-gf)*
+						*v_<Plug>(netfind-gf)*
+<Plug>(netfind-gf)	Like |gf|, |v_gf| with path resolution.
+
+					*<Plug>(netfind-c-wf)*
+					*v_<Plug>(netfind-c-wf)*
+<Plug>(netfind-c-wf)	Same for |CTRL-W_f|.
+
+					*<Plug>(netfind-c-wgf)*
+					*v_<Plug>(netfind-c-wgf)*
+<Plug>(netfind-c-wgf)	Same for |CTRL-W_gf|.
+
+
+					*<Plug>(netfind-gf-force)*
+					*<Plug>(netfind-c-wf-force)*
+					*<Plug>(netfind-c-wgf-force)*
+					*v_<Plug>(netfind-gf-force)*
+					*v_<Plug>(netfind-c-wf-force)*
+					*v_<Plug>(netfind-c-wgf-force)*
+<Plug>(netfind-gf-force)
+<Plug>(netfind-c-wf-force)
+<Plug>(netfind-c-wgf-force)
+			Use these if you want to skip buffer filename
+			check.
+
+					*<Plug>(netfind-gf-native)*
+					*<Plug>(netfind-c-wf-native)*
+					*<Plug>(netfind-c-wgf-native)*
+					*v_<Plug>(netfind-gf-native)*
+					*v_<Plug>(netfind-c-wf-native)*
+					*v_<Plug>(netfind-c-wgf-native)*
+<Plug>(netfind-gf-native)
+<Plug>(netfind-c-wf-native)
+<Plug>(netfind-c-wgf-native)
+			Remap these for setting keys that will be used
+			for the buffers that do not match any pattern.
+			Useful for chaining with similar plugins.
+
+======================================================================
+4. Commands					*netfind-commands*
+
+						*:Nfind*
+:Nfind {path}		Invokes |netfind#find()|.
+			See |:find|.
+
+vim:tw=70:sw=8:ts=8:noet:ft=help:norl:nowrap:
