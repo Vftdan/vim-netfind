@@ -11,8 +11,8 @@ noremap <Plug>(netfind-gf-native) gf
 noremap <Plug>(netfind-c-wf-native) <C-W>f
 noremap <Plug>(netfind-c-wgf-native) <C-W>gf
 
-nnoremap <Plug>(netfind-gf-force) <cmd>call netfind#find(expand('<lt>cfile>'))<cr>
-vnoremap <Plug>(netfind-gf-force) <esc><cmd>call netfind#find(netfind#_getsel())<cr>
+nnoremap <Plug>(netfind-gf-force) :call netfind#find(expand('<lt>cfile>'))<cr>
+vnoremap <Plug>(netfind-gf-force) <esc>:call netfind#find(netfind#_getsel())<cr>
 nnoremap <Plug>(netfind-c-wf-force) :split <c-r>=fnameescape(netfind#resolve(expand('<lt>cfile>')))<cr><cr>
 nnoremap <Plug>(netfind-c-wgf-force) :tab split <c-r>=fnameescape(netfind#resolve(expand('<lt>cfile>')))<cr><cr>
 " Just in case:
